@@ -11,13 +11,13 @@ export const authOptions: NextAuthOptions = {
           email: string;
           password: string;
         };
-        if (email !== "prithviraj@sotrue.com" || password !== "1234") {
+        if (email !== "prithvirajprasad@sotrue.co.in" || password !== "yAN@+i=#Ro1") {
           throw new Error("invalid credentials");
         }
         return {
           id: "1234",
-          name: "John Doe",
-          email: "john@gmail.com",
+          name: "Prithviraj Prasad",
+          email: "prithvirajprasad@sotrue.co.in",
         };
       },
     }),
