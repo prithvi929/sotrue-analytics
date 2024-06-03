@@ -60,10 +60,10 @@ export default function Overview() {
           <div className="text-white text-[40px] leading-[52px] font-bold tracking-normal pb-2">
             Users Dashboard
           </div>
-          <div className="text-[#ffffff99] text-base max-w-[485px]">
+          {/* <div className="text-[#ffffff99] text-base max-w-[485px]">
             Explore your users management dashboard with new modern and
             minimalist design view
-          </div>
+          </div> */}
         </div>
         <div className="relative w-full max-w-56">
           <div
