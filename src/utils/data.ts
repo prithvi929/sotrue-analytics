@@ -11,12 +11,12 @@ type analyticsProps = {
 export const analyticsData: analyticsProps[] = [
   {
     month: "may",
-    totalUsers: 100024,
-    totalDailyActiveUsers: 12000,
-    newUsers: 8023,
-    totalSessions: "13 min 42 sec",
-    verifiedUsers: 2478,
-    exclusiveContent: 7612,
+    totalUsers: 108597,
+    newUsers: 16596,
+    totalDailyActiveUsers: 8160,
+    totalSessions: "17 min 40 sec",
+    verifiedUsers: 2829,
+    exclusiveContent: 742,
   },
   {
     month: "april",
