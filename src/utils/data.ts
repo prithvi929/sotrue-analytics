@@ -13,10 +13,10 @@ export const analyticsData: analyticsProps[] = [
     month: "may",
     totalUsers: 108597,
     newUsers: 16596,
-    totalDailyActiveUsers: 8160,
+    totalDailyActiveUsers: 13121,
     totalSessions: "17 min 40 sec",
     verifiedUsers: 2829,
-    exclusiveContent: 742,
+    exclusiveContent: 7042,
   },
   {
     month: "april",
