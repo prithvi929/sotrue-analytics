@@ -21,6 +21,7 @@ type analyticsProps = {
 export default function Overview() {
   const options = [
     "Yesterday",
+    "June",
     "May",
     "April",
     "March",
