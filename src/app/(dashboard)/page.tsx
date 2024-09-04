@@ -16,11 +16,14 @@ type analyticsProps = {
   totalSessions: string;
   verifiedUsers: number;
   exclusiveContent: number;
+  deleteUsers?: number;
 };
 
 export default function Overview() {
   const options = [
     "Yesterday",
+    "August",
+    "July",
     "June",
     "May",
     "April",
@@ -113,11 +116,17 @@ export default function Overview() {
             icon="/new-users.png"
           />
           <UserCard
-            title="Active Users"
+            title="Daily Active Users"
             number={filteredData?.totalDailyActiveUsers}
             icon="/active-users.png"
           />
-          <UserCard title="Deleted Users" number={0} icon="/delete-users.png" />
+          {dropdown !== "Yesterday" && (
+            <UserCard
+              title="Monthly Active Users"
+              number={filteredData?.deleteUsers}
+              icon="/active-users.png"
+            />
+          )}
           <UserCard
             title="Average Session"
             number={filteredData?.totalSessions}
@@ -142,8 +151,10 @@ export default function Overview() {
             Recent 10 Users
           </div>
           <ul className="flex flex-col gap-3">
-            {recentUsers.map((user, idx) =>(
-              <li key={idx} className="text-base text-white text-sm">{user}</li>
+            {recentUsers.map((user, idx) => (
+              <li key={idx} className="text-base text-white text-sm">
+                {user}
+              </li>
             ))}
           </ul>
         </div>
