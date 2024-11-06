@@ -1,23 +1,26 @@
 "use client";
-
+import Spinner from "@/components/Spinner";
 import UserCard from "@/components/UserCard";
-import { analyticsData, dailyData } from "@/utils/data";
-import { getCurrentDate } from "@/utils/date";
-import { generateUserIDs } from "@/utils/userId";
-
+import {
+  fetchDailyAnalyticsData,
+  fetchMonthlyAnalyticsData,
+} from "@/firebase/firebaseQueries";
+import { getCurrentDate } from "@/utils/date"; // Imported utility function
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-type analyticsProps = {
+interface AnalyticsProps {
+  id: string;
   month: string;
-  totalUsers: number;
-  totalDailyActiveUsers: number;
-  newUsers: number;
-  totalSessions: string;
-  verifiedUsers: number;
-  exclusiveContent: number;
+  totalUsers?: number;
+  newUsers?: number;
+  totalDailyActiveUsers?: number;
   deleteUsers?: number;
-};
+  totalSessions?: number;
+  verifiedUsers?: number;
+  exclusiveContent?: number;
+}
 
 export default function Overview() {
   const options = [
@@ -36,28 +39,52 @@ export default function Overview() {
   ];
   const [dropdown, setDropdown] = useState(options[0]);
   const [open, setOpen] = useState(false);
-  const [filteredData, setFilteredData] = useState<analyticsProps | null>(
-    analyticsData[0]
-  );
+  const [filteredData, setFilteredData] = useState<AnalyticsProps | null>(null);
 
+  const {
+    data: monthlyData,
+    error: monthlyError,
+    isLoading: isLoadingMonthly,
+  } = useQuery<AnalyticsProps[]>({
+    queryKey: ["monthlyAnalyticsData"],
+    queryFn: fetchMonthlyAnalyticsData,
+  });
+
+  const {
+    data: dailyData,
+    error: dailyError,
+    isLoading: isLoadingDaily,
+  } = useQuery<AnalyticsProps[]>({
+    queryKey: ["dailyAnalyticsData"],
+    queryFn: fetchDailyAnalyticsData,
+  });
+
+  // Filter data based on dropdown selection
   useEffect(() => {
     if (dropdown !== "Yesterday") {
-      const data = analyticsData.find(
-        (data: analyticsProps) =>
-          data.month.toLowerCase() === dropdown.toLowerCase()
+      const data = monthlyData?.find(
+        (item) => item.month.toLowerCase() === dropdown.toLowerCase()
       );
       setFilteredData(data || null);
     } else {
       const date = getCurrentDate();
-      const data = dailyData.find(
-        (data: analyticsProps) => data.month === date
-      );
+      const data = dailyData?.find((item) => item.month.toLowerCase() === date);
       setFilteredData(data || null);
     }
-  }, [dropdown]);
+  }, [dropdown, monthlyData, dailyData]);
 
-  const users = generateUserIDs();
-  const recentUsers = users.slice(0, 10);
+  if (isLoadingMonthly || isLoadingDaily)
+    return (
+      <div className="h-full min-h-screen w-full flex justify-center items-center">
+        <Spinner />
+      </div>
+    );
+  if (monthlyError || dailyError)
+    return (
+      <div className="h-full min-h-screen w-full flex justify-center items-center">
+        <p className="text-base text-white">Error loading data</p>
+      </div>
+    );
 
   return (
     <div className="px-6 py-10">
@@ -66,10 +93,6 @@ export default function Overview() {
           <div className="text-white text-[40px] leading-[52px] font-bold tracking-normal pb-2">
             Users Dashboard
           </div>
-          {/* <div className="text-[#ffffff99] text-base max-w-[485px]">
-            Explore your users management dashboard with new modern and
-            minimalist design view
-          </div> */}
         </div>
         <div className="relative w-full max-w-56">
           <div
@@ -145,21 +168,6 @@ export default function Overview() {
           />
         </div>
       )}
-
-      <div className="flex justify-between pt-10 gap-4">
-        <div className="flex-1 w-full rounded-xl shadow-small bg-[#061239] px-4 py-8">
-          <div className="text-base text-white font-semibold pb-6">
-            Recent 10 Users
-          </div>
-          <ul className="flex flex-col gap-3">
-            {recentUsers.map((user, idx) => (
-              <li key={idx} className="text-base text-white text-sm">
-                {user}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
     </div>
   );
 }

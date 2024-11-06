@@ -1,27 +1,24 @@
 "use client";
-import { signIn } from "next-auth/react";
-import { redirect } from "next/dist/server/api-utils";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { FormEventHandler, useState } from "react";
+import { auth } from "@/firebase/config";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const router = useRouter();
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     try {
-      const response = await signIn("credentials", {
-        email: userInfo.email,
-        password: userInfo.password,
-        redirect: false,
-      });
-      if (response?.error) {
-        console.error("Authentication error:", response.error);
-      } else if (response?.ok) {
-        console.log("Authentication successful!");
-        router.push("/")
-      }
+      const res = await signInWithEmailAndPassword(
+        userInfo.email,
+        userInfo.password
+      );
+      localStorage.setItem("user", "true");
+      setUserInfo({ email: "", password: "" });
+      router.push("/");
     } catch (error) {
       console.error("An error occurred:", error);
     }

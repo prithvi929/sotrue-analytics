@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Providers } from "@/utils/Providers";
+import { QueryProvider } from "@/utils/QueryProvider";
 
 export const metadata: Metadata = {
   title: "Dashboard - SoTrue",
@@ -12,12 +12,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <Providers>
+    <QueryProvider>
+      <html lang="en">
         <body suppressHydrationWarning={true} className="bg-[#1C2545]">
           {children}
         </body>
-      </Providers>
-    </html>
+      </html>
+    </QueryProvider>
   );
 }
