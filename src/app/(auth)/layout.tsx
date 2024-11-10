@@ -21,7 +21,7 @@ export default function Layout({ children }: Readonly<LayoutProps>) {
 
   useEffect(() => {
     if (!loading && user) {
-      router.push("/dashboard");
+      router.push("/");
     }
   }, [user, loading, router]);
 
