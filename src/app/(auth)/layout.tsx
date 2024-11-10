@@ -29,7 +29,6 @@ export default function Layout({ children }: Readonly<LayoutProps>) {
     return <LoadingSpinner />;
   }
 
-  // Allow access to auth pages only for non-authenticated users
   if (!user) {
     return (
       <main className="flex justify-center items-center min-h-screen">
