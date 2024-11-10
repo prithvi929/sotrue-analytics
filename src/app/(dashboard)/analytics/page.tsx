@@ -69,7 +69,7 @@ const Analytics = () => {
       <div className="grid grid-cols-2 gap-8 pt-12">
         <div className="bg-[#071237] w-full rounded-2xl h-96">
           <div className="px-8 py-6 h-full w-full flex flex-col">
-            <div className="text-[#FCFCFC] text-base">New Users Per Month</div>
+            <div className="text-[#FCFCFC] text-base">Total Users</div>
             <div className="h-full w-full pt-6 grow">
               <UsersPerMonthGraph data={newUserPerMonthData ?? []} />
             </div>
@@ -86,7 +86,7 @@ const Analytics = () => {
         <div className="bg-[#071237] w-full rounded-2xl h-96">
           <div className="px-8 py-6 h-full w-full flex flex-col">
             <div className="text-[#FCFCFC] text-base">
-              Monthly Deleted Users
+              New Users vs Inactive Users
             </div>
             <div className="h-full w-full pt-6 grow">
               <MonthlyDeletedUsersGraph data={monthlyDeletedUsersData ?? []} />
