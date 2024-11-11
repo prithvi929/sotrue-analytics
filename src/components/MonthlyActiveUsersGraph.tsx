@@ -73,7 +73,24 @@ const CustomBar: React.FC<CustomBarProps> = ({
   );
 };
 
-const MonthlyActiveUsersGraph: React.FC<{ data: UserData[] }> = ({ data }) => {
+const data = [
+  {
+    itemID: "mau1",
+    month: "Jan",
+    users: 8823,
+  },
+  { itemID: "mau2", month: "Feb", users: 12243 },
+  { itemID: "mau3", month: "Mar", users: 25443 },
+  { itemID: "mau4", month: "Apr", users: 28127 },
+  { itemID: "mau5", month: "May", users: 27651 },
+  { itemID: "mau6", month: "Jun", users: 34769 },
+  { itemID: "mau7", month: "Jul", users: 38217 },
+  { itemID: "mau8", month: "Aug", users: 41299 },
+  { itemID: "mau9", month: "Sep", users: 34223 },
+  { itemID: "mau11", month: "Oct", users: 53786 },
+];
+
+const MonthlyActiveUsersGraph = () => {
   return (
     <>
       <ResponsiveContainer width="100%" height="100%">

@@ -43,7 +43,24 @@ const CustomTooltip: React.FC<TooltipProps<number, string>> = ({
   return null;
 };
 
-const UsersPerMonthGraph: React.FC<{ data: UserData[] }> = ({ data }) => {
+const data = [
+  {
+    itemID: "nupm1",
+    month: "Jan",
+    users: 35056,
+  },
+  { itemID: "nupm2", month: "Feb", users: 42293 },
+  { itemID: "nupm3", month: "Mar", users: 70072 },
+  { itemID: "nupm4", month: "Apr", users: 80401 },
+  { itemID: "nupm5", month: "May", users: 96361 },
+  { itemID: "nupm6", month: "Jun", users: 111638 },
+  { itemID: "nupm7", month: "Jul", users: 128121 },
+  { itemID: "nupm8", month: "Aug", users: 140440 },
+  { itemID: "nupm9", month: "Sep", users: 146273 },
+  { itemID: "nupm11", month: "Oct", users: 154575 },
+];
+
+const UsersPerMonthGraph = () => {
   return (
     <>
       <ResponsiveContainer width="100%" height="100%">

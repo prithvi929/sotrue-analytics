@@ -44,21 +44,21 @@ const dataDeletedActiveUsers = [
     itemID: "mdu1",
     month: "Jan",
     addUsers: 11616,
-    delUsers: -954,
+    delUsers: -984,
   },
 
   {
     itemID: "mdu1",
     month: "Feb",
     addUsers: 8476,
-    delUsers: -693,
+    delUsers: -1239,
   },
 
   {
     itemID: "mdu1",
     month: "Mar",
     addUsers: 34322,
-    delUsers: -3443,
+    delUsers: -6543,
   },
 
   {
@@ -72,42 +72,42 @@ const dataDeletedActiveUsers = [
     itemID: "mdu1",
     month: "May",
     addUsers: 17856,
-    delUsers: -1699,
+    delUsers: -1896,
   },
 
   {
     itemID: "mdu1",
     month: "Jun",
     addUsers: 19909,
-    delUsers: -5455,
+    delUsers: -4632,
   },
 
   {
     itemID: "mdu1",
     month: "Jul",
     addUsers: 20029,
-    delUsers: -5567,
+    delUsers: -3546,
   },
 
   {
     itemID: "mdu1",
     month: "Aug",
     addUsers: 14978,
-    delUsers: -3969,
+    delUsers: -2659,
   },
 
   {
     itemID: "mdu1",
     month: "Sep",
     addUsers: 8209,
-    delUsers: -7047,
+    delUsers: -2376,
   },
 
   {
     itemID: "mdu1",
     month: "Oct",
     addUsers: 10289,
-    delUsers: -5124,
+    delUsers: -1987,
   },
 ];
 

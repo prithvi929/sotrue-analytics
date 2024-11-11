@@ -25,6 +25,7 @@ interface AnalyticsProps {
 export default function Overview() {
   const options = [
     "Yesterday",
+    "October",
     "September",
     "August",
     "July",
@@ -34,8 +35,6 @@ export default function Overview() {
     "March",
     "February",
     "January",
-    "December",
-    "November",
   ];
   const [dropdown, setDropdown] = useState(options[0]);
   const [open, setOpen] = useState(false);
@@ -139,33 +138,27 @@ export default function Overview() {
             number={filteredData?.newUsers}
             icon="/new-users.png"
           />
-          <UserCard
-            title="Daily Active Users"
-            number={filteredData?.totalDailyActiveUsers}
-            icon="/active-users.png"
-          />
-          {dropdown !== "Yesterday" && (
+          {dropdown === "Yesterday" && (
             <UserCard
-              title="Monthly Active Users"
-              number={filteredData?.deleteUsers}
+              title="Inactive Users"
+              number={0}
               icon="/active-users.png"
             />
           )}
-          <UserCard
-            title="Average Session"
-            number={filteredData?.totalSessions}
-            icon="/session.svg"
-          />
-          <UserCard
-            title="Verified Users"
-            number={filteredData?.verifiedUsers}
-            icon="/verify.svg"
-          />
-          <UserCard
-            title="Exclusive Content"
-            number={filteredData?.exclusiveContent}
-            icon="/content.svg"
-          />
+          {dropdown !== "Yesterday" && (
+            <>
+              <UserCard
+                title="Monthly Active Users"
+                number={filteredData?.totalDailyActiveUsers}
+                icon="/active-users.png"
+              />
+              <UserCard
+                title="Inactive Users"
+                number={filteredData?.deleteUsers}
+                icon="/active-users.png"
+              />
+            </>
+          )}
         </div>
       )}
     </div>

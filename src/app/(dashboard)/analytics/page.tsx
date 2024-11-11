@@ -18,48 +18,48 @@ interface UserData {
 }
 
 const Analytics = () => {
-  const {
-    data: newUserPerMonthData,
-    error: newUserError,
-    isLoading: isLoadingNewUser,
-  } = useQuery<UserData[]>({
-    queryKey: ["newUserPerMonthData"],
-    queryFn: fetchNewUserPerMonthData,
-  });
+  // const {
+  //   data: newUserPerMonthData,
+  //   error: newUserError,
+  //   isLoading: isLoadingNewUser,
+  // } = useQuery<UserData[]>({
+  //   queryKey: ["newUserPerMonthData"],
+  //   queryFn: fetchNewUserPerMonthData,
+  // });
 
-  const {
-    data: monthlyDeletedUsersData,
-    error: deletedUserError,
-    isLoading: isLoadingDeletedUser,
-  } = useQuery<UserData[]>({
-    queryKey: ["monthlyDeletedUsersData"],
-    queryFn: fetchMonthlyDeletedUsersData,
-  });
+  // const {
+  //   data: monthlyDeletedUsersData,
+  //   error: deletedUserError,
+  //   isLoading: isLoadingDeletedUser,
+  // } = useQuery<UserData[]>({
+  //   queryKey: ["monthlyDeletedUsersData"],
+  //   queryFn: fetchMonthlyDeletedUsersData,
+  // });
 
-  const {
-    data: monthlyActiveUsersData,
-    error: activeUserError,
-    isLoading: isLoadingActiveUser,
-  } = useQuery<UserData[]>({
-    queryKey: ["monthlyActiveUsersData"],
-    queryFn: fetchMonthlyActiveUsersData,
-  });
+  // const {
+  //   data: monthlyActiveUsersData,
+  //   error: activeUserError,
+  //   isLoading: isLoadingActiveUser,
+  // } = useQuery<UserData[]>({
+  //   queryKey: ["monthlyActiveUsersData"],
+  //   queryFn: fetchMonthlyActiveUsersData,
+  // });
 
-  if (isLoadingNewUser || isLoadingDeletedUser || isLoadingActiveUser) {
-    return (
-      <div className="h-full min-h-screen w-full flex justify-center items-center">
-        <Spinner />
-      </div>
-    );
-  }
+  // if (isLoadingNewUser || isLoadingDeletedUser || isLoadingActiveUser) {
+  //   return (
+  //     <div className="h-full min-h-screen w-full flex justify-center items-center">
+  //       <Spinner />
+  //     </div>
+  //   );
+  // }
 
-  if (newUserError || deletedUserError || activeUserError) {
-    return (
-      <div className="h-full min-h-screen w-full flex justify-center items-center">
-        <p className="text-base text-white">{`Error loading data: ${newUserError || deletedUserError || activeUserError}`}</p>
-      </div>
-    );
-  }
+  // if (newUserError || deletedUserError || activeUserError) {
+  //   return (
+  //     <div className="h-full min-h-screen w-full flex justify-center items-center">
+  //       <p className="text-base text-white">{`Error loading data: ${newUserError || deletedUserError || activeUserError}`}</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="px-6 py-10">
@@ -71,7 +71,7 @@ const Analytics = () => {
           <div className="px-8 py-6 h-full w-full flex flex-col">
             <div className="text-[#FCFCFC] text-base">Total Users</div>
             <div className="h-full w-full pt-6 grow">
-              <UsersPerMonthGraph data={newUserPerMonthData ?? []} />
+              <UsersPerMonthGraph />
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ const Analytics = () => {
           <div className="px-8 py-6 h-full w-full flex flex-col">
             <div className="text-[#FCFCFC] text-base">Monthly Active Users</div>
             <div className="h-full w-full pt-6 grow">
-              <MonthlyActiveUsersGraph data={monthlyActiveUsersData ?? []} />
+              <MonthlyActiveUsersGraph  />
             </div>
           </div>
         </div>
