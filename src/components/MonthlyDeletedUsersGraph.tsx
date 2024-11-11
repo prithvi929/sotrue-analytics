@@ -16,16 +16,6 @@ interface UserData {
   users: number;
 }
 
-type CustomBarProps = {
-  x?: number;
-  y?: number;
-  width?: number;
-  height?: number;
-  fill?: string;
-  opacity?: number;
-  value?: number;
-};
-
 const CustomTooltipBar: React.FC<TooltipProps<number, string>> = ({
   active,
   payload,
@@ -47,41 +37,6 @@ const CustomTooltipBar: React.FC<TooltipProps<number, string>> = ({
     );
   }
   return null;
-};
-
-const CustomBar: React.FC<CustomBarProps> = ({
-  x,
-  y,
-  width,
-  height,
-  fill,
-  opacity,
-  value,
-}) => {
-  const [hover, setHover] = React.useState(false);
-
-  // Adjust the position of the negative bars (delUsers) below the x-axis
-  const adjustedY = value && value < 0 ? y : y! - height!;
-  const adjustedHeight = Math.abs(height || 0);
-
-  return (
-    <g>
-      <rect
-        x={x}
-        y={adjustedY}
-        width={width}
-        height={adjustedHeight}
-        fill={fill}
-        opacity={hover ? 1 : opacity}
-        rx={4}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-        style={{
-          transition: "all 0.3s ease", // Smooth transition
-        }}
-      />
-    </g>
-  );
 };
 
 const dataDeletedActiveUsers = [
@@ -156,7 +111,7 @@ const dataDeletedActiveUsers = [
   },
 ];
 
-const MonthlyDeletedUsersGraph: React.FC<{ data: UserData[] }> = () => {
+const MonthlyDeletedUsersGraph = () => {
   return (
     <>
       <ResponsiveContainer width="100%" height="100%">

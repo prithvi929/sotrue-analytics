@@ -56,7 +56,7 @@ const Analytics = () => {
   if (newUserError || deletedUserError || activeUserError) {
     return (
       <div className="h-full min-h-screen w-full flex justify-center items-center">
-        <p className="text-base text-white">Error loading data</p>
+        <p className="text-base text-white">{`Error loading data: ${newUserError || deletedUserError || activeUserError}`}</p>
       </div>
     );
   }
@@ -89,7 +89,7 @@ const Analytics = () => {
               New Users vs Inactive Users
             </div>
             <div className="h-full w-full pt-6 grow">
-              <MonthlyDeletedUsersGraph data={monthlyDeletedUsersData ?? []} />
+              <MonthlyDeletedUsersGraph />
             </div>
           </div>
         </div>

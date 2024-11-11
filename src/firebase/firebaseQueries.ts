@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, limit, startAfter, DocumentData } from "firebase/firestore";
 import { db } from "./config";
 
 // Ensure this structure matches the exact fields returned by Firebase.
@@ -47,16 +47,33 @@ export const fetchDailyAnalyticsData = async (): Promise<AnalyticsProps[]> => {
   })) as AnalyticsProps[];
 };
 
-export const fetchCustomerData = async (): Promise<CustomerProps[]> => {
-  const querySnapshot = await getDocs(collection(db, "customerData")); // Replace "customers" with the actual collection name if different
-  return querySnapshot.docs.map((doc) => ({
-    itemID: doc.data().itemID,
+export const fetchCustomerData = async (
+  usersPerPage: number,
+  lastVisibleDoc: DocumentData | null
+): Promise<{ data: CustomerProps[]; lastVisibleDoc: DocumentData | null }> => {
+  
+  await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 1000));
+  // Build the query with pagination
+  const customerCollection = collection(db, "customerData");
+  const customerQuery = lastVisibleDoc
+    ? query(customerCollection, startAfter(lastVisibleDoc), limit(usersPerPage))
+    : query(customerCollection, limit(usersPerPage));
+
+  const querySnapshot = await getDocs(customerQuery);
+
+  const data = querySnapshot.docs.map((doc) => ({
+    itemID: doc.id,
     date: doc.data().date,
     Verified: doc.data().Verified,
     country: doc.data().country,
     platform: doc.data().platform,
     userId: doc.data().userId,
   })) as CustomerProps[];
+
+  // Determine the last visible document for pagination
+  const newLastVisibleDoc = querySnapshot.docs[querySnapshot.docs.length - 1] || null;
+
+  return { data, lastVisibleDoc: newLastVisibleDoc };
 };
 
 export const fetchNewUserPerMonthData = async (): Promise<UserData[]> => {
