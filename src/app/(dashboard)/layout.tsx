@@ -81,7 +81,7 @@ export default function Layout({
             <div className="h-8 w-8 bg-white rounded-full"></div>
             <div>
               <div className="text-xs font-bold text-white">
-                Prithviraj Prasad
+                Hello Admin,
               </div>
               <div
                 className="text-xs text-white text-[#ffffffB3] cursor-pointer"
