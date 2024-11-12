@@ -21,6 +21,8 @@ const CustomTooltipBar: React.FC<TooltipProps<number, string>> = ({
   payload,
 }) => {
   if (active && payload && payload.length) {
+    const newUsers = payload[0]?.value ?? 0;
+    const inactiveUsers = payload[1]?.value ?? 0;
     return (
       <div
         style={{
@@ -29,10 +31,11 @@ const CustomTooltipBar: React.FC<TooltipProps<number, string>> = ({
           padding: "4px",
           minWidth: "60px",
           color: "#FCFCFC",
-          textAlign: "center",
+          textAlign: "left",
         }}
       >
-        <p>{`${payload[0].value}`}</p>
+        <p className="text-xs">{`New Users ${newUsers}`}</p>
+        <p className="text-xs">{`Inactive Users ${Math.abs(inactiveUsers)}`}</p>
       </div>
     );
   }
