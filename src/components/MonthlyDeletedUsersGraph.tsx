@@ -47,70 +47,70 @@ const dataDeletedActiveUsers = [
     itemID: "mdu1",
     month: "Jan",
     addUsers: 11616,
-    delUsers: -984,
+    delUsers: -967,
   },
 
   {
     itemID: "mdu1",
     month: "Feb",
     addUsers: 8476,
-    delUsers: -1239,
+    delUsers: -1029,
   },
 
   {
     itemID: "mdu1",
     month: "Mar",
     addUsers: 34322,
-    delUsers: -6543,
+    delUsers: -3266,
   },
 
   {
     itemID: "mdu1",
     month: "Apr",
     addUsers: 11472,
-    delUsers: -1143,
+    delUsers: -1867,
   },
 
   {
     itemID: "mdu1",
     month: "May",
     addUsers: 17856,
-    delUsers: -1896,
+    delUsers: -2351,
   },
 
   {
     itemID: "mdu1",
     month: "Jun",
     addUsers: 19909,
-    delUsers: -4632,
+    delUsers: -2278,
   },
 
   {
     itemID: "mdu1",
     month: "Jul",
     addUsers: 20029,
-    delUsers: -3546,
+    delUsers: -2472,
   },
 
   {
     itemID: "mdu1",
     month: "Aug",
     addUsers: 14978,
-    delUsers: -2659,
+    delUsers: -1594,
   },
 
   {
     itemID: "mdu1",
     month: "Sep",
     addUsers: 8209,
-    delUsers: -2376,
+    delUsers: -1242,
   },
 
   {
     itemID: "mdu1",
     month: "Oct",
     addUsers: 10289,
-    delUsers: -1987,
+    delUsers: -984,
   },
 ];
 
