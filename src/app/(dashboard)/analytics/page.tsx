@@ -86,7 +86,7 @@ const Analytics = () => {
         <div className="bg-[#071237] w-full rounded-2xl h-96">
           <div className="px-8 py-6 h-full w-full flex flex-col">
             <div className="text-[#FCFCFC] text-base">
-              New Users vs Inactive Users
+              New Users vs Deleted Users
             </div>
             <div className="h-full w-full pt-6 grow">
               <MonthlyDeletedUsersGraph />

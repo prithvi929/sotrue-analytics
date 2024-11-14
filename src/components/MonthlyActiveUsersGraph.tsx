@@ -86,7 +86,7 @@ const data = [
   { itemID: "mau6", month: "Jun", users: 34769 },
   { itemID: "mau7", month: "Jul", users: 38217 },
   { itemID: "mau8", month: "Aug", users: 41299 },
-  { itemID: "mau9", month: "Sep", users: 43334 },
+  { itemID: "mau9", month: "Sep", users: 43223 },
   { itemID: "mau11", month: "Oct", users: 53786 },
 ];
 

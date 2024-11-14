@@ -128,11 +128,13 @@ export default function Overview() {
       </div>
       {filteredData && (
         <div className="grid grid-cols-4 gap-4 pt-12">
-          <UserCard
-            title="Total Users"
-            number={filteredData?.totalUsers}
-            icon="/users.png"
-          />
+          {dropdown !== "Yesterday" && (
+            <UserCard
+              title="Total Users"
+              number={filteredData?.totalUsers}
+              icon="/users.png"
+            />
+          )}
           <UserCard
             title="New Users"
             number={filteredData?.newUsers}
@@ -140,8 +142,8 @@ export default function Overview() {
           />
           {dropdown === "Yesterday" && (
             <UserCard
-              title="Inactive Users"
-              number={0}
+              title="Deleted Users"
+              number={filteredData?.deleteUsers}
               icon="/active-users.png"
             />
           )}
@@ -153,7 +155,7 @@ export default function Overview() {
                 icon="/active-users.png"
               />
               <UserCard
-                title="Inactive Users"
+                title="Deleted Users"
                 number={filteredData?.deleteUsers}
                 icon="/active-users.png"
               />

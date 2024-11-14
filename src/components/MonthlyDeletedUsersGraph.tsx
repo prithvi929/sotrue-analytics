@@ -35,7 +35,7 @@ const CustomTooltipBar: React.FC<TooltipProps<number, string>> = ({
         }}
       >
         <p className="text-xs">{`New Users ${newUsers}`}</p>
-        <p className="text-xs">{`Inactive Users ${Math.abs(inactiveUsers)}`}</p>
+        <p className="text-xs">{`Deleted Users ${Math.abs(inactiveUsers)}`}</p>
       </div>
     );
   }
