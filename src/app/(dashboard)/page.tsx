@@ -25,6 +25,7 @@ interface AnalyticsProps {
 export default function Overview() {
   const options = [
     "Yesterday",
+    "November",
     "October",
     "September",
     "August",
