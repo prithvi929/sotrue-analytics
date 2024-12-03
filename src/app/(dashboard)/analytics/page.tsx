@@ -67,7 +67,7 @@ const Analytics = () => {
         Analytics
       </div>
       <div className="grid grid-cols-2 gap-8 pt-12">
-        <div className="bg-[#071237] w-full rounded-2xl h-96">
+        <div className="col-span-2 bg-[#071237] w-full rounded-2xl h-96">
           <div className="px-8 py-6 h-full w-full flex flex-col">
             <div className="text-[#FCFCFC] text-base">Total Users</div>
             <div className="h-full w-full pt-6 grow">

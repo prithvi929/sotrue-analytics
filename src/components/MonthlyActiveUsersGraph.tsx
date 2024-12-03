@@ -88,6 +88,7 @@ const data = [
   { itemID: "mau8", month: "Aug", users: 41299 },
   { itemID: "mau9", month: "Sep", users: 43223 },
   { itemID: "mau11", month: "Oct", users: 53786 },
+  { itemID: "mau12", month: "Nov", users: 60991 },
 ];
 
 const MonthlyActiveUsersGraph = () => {

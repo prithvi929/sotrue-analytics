@@ -58,6 +58,7 @@ const data = [
   { itemID: "nupm8", month: "Aug", users: 147241 },
   { itemID: "nupm9", month: "Sep", users: 154208 },
   { itemID: "nupm11", month: "Oct", users: 163513 },
+  { itemID: "nupm12", month: "Nov", users: 178331 },
 ];
 
 const UsersPerMonthGraph = () => {
@@ -66,7 +67,7 @@ const UsersPerMonthGraph = () => {
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart
           data={data}
-          margin={{ top: 20, right: 0, left: -24, bottom: 0 }}
+          margin={{ top: 20, right: 0, left: -16, bottom: 0 }}
         >
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">

@@ -112,6 +112,13 @@ const dataDeletedActiveUsers = [
     addUsers: 10289,
     delUsers: -984,
   },
+
+  {
+    itemID: "mdu1",
+    month: "Nov",
+    addUsers: 15515,
+    delUsers: -697,
+  },
 ];
 
 const MonthlyDeletedUsersGraph = () => {
